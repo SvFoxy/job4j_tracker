@@ -12,8 +12,6 @@ public class Battery {
     }
 
     public void exchange(Battery another) {
-//Этот метод должен списывать заряд из батареи у кого вызывали метод exchange
-// и добавить к объекту another.
         another.load = another.load + this.load;
         this.load = 0;
     }
