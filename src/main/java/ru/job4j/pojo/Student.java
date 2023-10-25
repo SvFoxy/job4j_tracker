@@ -3,8 +3,7 @@ package ru.job4j.pojo;
 import java.util.Date;
 
 public class Student {
-    //ФИО, группа, дата поступления.
-
+    /* ФИО, группа, дата поступления.*/
     private String surname;
     private String name;
     private String patronymic;

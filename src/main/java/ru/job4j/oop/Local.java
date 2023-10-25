@@ -6,7 +6,8 @@ public class Local {
     public void getFullName() {
         final String surname = "Arsentev";
 
-        class FullName {    //локальный класс
+        class FullName {
+            /*локальный класс*/
 
             public void printFullName() {
                 System.out.println(name + " " + surname);
