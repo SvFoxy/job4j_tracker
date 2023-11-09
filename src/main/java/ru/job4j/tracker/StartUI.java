@@ -7,7 +7,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker,  UserAction[] actions) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             showMenu(actions);
@@ -18,9 +18,9 @@ public class StartUI {
     }
 
     private void showMenu(UserAction[] actions) {
-        System.out.println("Меню:");
+        out.println("Меню:");
         for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+            out.println(index + ". " + actions[index].name());
         }
     }
 
@@ -39,5 +39,4 @@ public class StartUI {
         };
         new StartUI(output).init(input, tracker, actions);
     }
-
 }
