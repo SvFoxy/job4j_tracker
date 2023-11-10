@@ -2,9 +2,6 @@ package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
@@ -121,9 +118,7 @@ class StartUITest {
                         + "0. Показать все заявки" + ln
                         + "1. Завершить программу" + ln
                         + "=== Вывод всех заявок ===" + ln
-                        + "Item{id=1, name='test2', created="
-                        + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss"))
-                        + "}" + ln
+                        + one + ln
                         + "Меню:" + ln
                         + "0. Показать все заявки" + ln
                         + "1. Завершить программу" + ln
@@ -150,9 +145,7 @@ class StartUITest {
                         + "0. Найти заявку по имени" + ln
                         + "1. Завершить программу" + ln
                         + "=== Вывод заявок по имени ===" + ln
-                        + "Item{id=1, name='test3', created="
-                        + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss"))
-                        + "}" + ln
+                        + one + ln
                         + "Меню:" + ln
                         + "0. Найти заявку по имени" + ln
                         + "1. Завершить программу" + ln
@@ -166,7 +159,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test4"));
         Input in = new MockInput(
-                new String[] {"0", "1", "1"}
+                new String[] {"0", String.valueOf(one.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByIdAction(out),
@@ -179,9 +172,7 @@ class StartUITest {
                         + "0. Найти завку по id" + ln
                         + "1. Завершить программу" + ln
                         + "=== Вывод заявки по id ===" + ln
-                        + "Item{id=1, name='test4', created="
-                        + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss"))
-                        + "}" + ln
+                        + one + ln
                         + "Меню:" + ln
                         + "0. Найти завку по id" + ln
                         + "1. Завершить программу" + ln
