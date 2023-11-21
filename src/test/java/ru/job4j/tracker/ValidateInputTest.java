@@ -30,14 +30,15 @@ class ValidateInputTest {
     @Test
     void whenMultipleValidInput() {
         Output out = new StubOutput();
-
-        String[] str = new String[] {"2", "1"};
-        Input in = new MockInput(str);
-        for (String s : str) {
-            ValidateInput input = new ValidateInput(out, in);
-            int selected = input.askInt("Enter menu:");
-            assertThat(selected).isEqualTo(Integer.parseInt(s));
-        }
+        Input in = new MockInput(
+                new String[] {"2", "1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(2);
+        ValidateInput input1 = new ValidateInput(out, in);
+        int selected1 = input1.askInt("Enter menu:");
+        assertThat(selected1).isEqualTo(1);
     }
 
     @Test
