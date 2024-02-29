@@ -1,17 +1,15 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     private int indexOf(int id) {
         int rsl = -1;
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
@@ -23,7 +21,6 @@ public class Tracker {
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
-        size++;
         return item;
     }
 
@@ -34,24 +31,17 @@ public class Tracker {
         return index != -1 ? items.get(index) : null;
     }
 
-    public Item[] findAll() {
-        Item[] rsl = new Item[size];
-        for (int index = 0; index < size; index++) {
-            rsl[index] = items.get(index);
-        }
-        return rsl;
+    public List<Item> findAll() {
+        return List.copyOf(items);
     }
 
-    public Item[] findByName(String key) {
-        Item[] rsl = new Item[size];
-        int len = 0;
-        for (int index = 0; index < size; index++) {
-            if (items.get(index).getName().equals(key)) {
-                rsl[len] = items.get(index);
-                len++;
+    public List<Item> findByName(String key) {
+        List<Item> rsl = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                rsl.add(item);
             }
         }
-        rsl = Arrays.copyOf(rsl, len);
         return rsl;
     }
 
@@ -60,7 +50,7 @@ public class Tracker {
         boolean rsl = index != -1;
         if (rsl) {
             item.setId(id);
-            items.add(index, item);
+            items.set(index, item);
         }
         return rsl;
     }
@@ -69,8 +59,7 @@ public class Tracker {
         int index = indexOf(id);
         boolean result = index != -1;
         if (result) {
-            items.remove(size - 1);
-            size--;
+            items.remove(index);
         }
     }
 }
