@@ -12,7 +12,6 @@ public class UniqueText {
             check.add(o);
         }
         for (String t : text) {
-            result = check.contains(t);
             if (!check.contains(t)) {
                 result = false;
                 break;
