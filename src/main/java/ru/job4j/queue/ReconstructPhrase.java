@@ -29,8 +29,7 @@ public class ReconstructPhrase {
         int size = descendingElements.size();
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            builder.append(descendingElements.peekLast());
-            descendingElements.pollLast();
+            builder.append(descendingElements.pollLast());
         }
         return builder.toString();
     }
