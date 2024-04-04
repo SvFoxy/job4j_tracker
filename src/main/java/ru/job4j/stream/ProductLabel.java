@@ -9,7 +9,7 @@ public class ProductLabel {
         return products.stream()
                 .filter(product -> product.getStandard() - product.getActual() >= 0)
                 .filter(product -> product.getStandard() - product.getActual() <= 3)
-                .map(product -> new Label(product.getName(), product.getPrice() * 50 / 100))
+                .map(product -> new Label(product.getName(), (float) (product.getPrice() * 0.5)))
                 .flatMap(label -> Stream.of(label.toString()))
                 .collect(Collectors.toList());
     }
