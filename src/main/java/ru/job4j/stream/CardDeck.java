@@ -11,7 +11,7 @@ public class CardDeck {
         V_6, V_7, V_8
     }
 
-    public class Card {
+    public static class Card {
         private Suit suit;
         private Value value;
 
@@ -23,8 +23,8 @@ public class CardDeck {
 
     public static void main(String[] args) {
         Stream.of(Suit.values())
-                .flatMap(Suit -> Stream.of(Value.values())
-                        .map(Value -> Suit + " " + Value))
+                .flatMap(suit -> Stream.of(Value.values())
+                        .map(value -> new Card(suit, value)))
                 .forEach(System.out::println);
     }
 }
