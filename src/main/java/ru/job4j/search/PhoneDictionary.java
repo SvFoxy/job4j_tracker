@@ -14,7 +14,8 @@ public class PhoneDictionary {
      * Вернуть список всех пользователей, который содержат key в любых полях.
      * @param key Ключ поиска.
      * @return Список пользователей, которые прошли проверку.
-     */    
+     */
+
     public ArrayList<Person> find(String key) {
         Predicate<Person> predicateName = person -> person.getName().contains(key);
         Predicate<Person> predicateSurname = person -> person.getSurname().contains(key);
